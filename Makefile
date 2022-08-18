@@ -193,5 +193,11 @@ codespaces_setenv:
 	qemu-system-riscv64 --version
 	qemu-riscv64 --version
 	curl https://sh.rustup.rs -sSf | sh -s -- -y
-	/bin/zsh && source /home/codespace/.cargo/env
+	source /home/codespace/.cargo/env
 	rustc --version
+	rustup install nightly
+	rustup default nightly
+	rustup target add riscv64gc-unknown-none-elf
+	cargo install cargo-binutils --vers =0.3.3
+	rustup component add llvm-tools-preview
+	rustup component add rust-src
